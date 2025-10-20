@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>След, который ты оставила</title>
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body>
+    <div class="sky-container fullscreen hidden" id="mainScene">
+        <canvas class="stars-bg"></canvas>
+        <div class="friend-stars-container" id="friendStars"></div>
+
+        <div class="video-modal hidden" id="videoModal">
+            <video controls id="friendVideo"></video>
+            <div class="video-title" id="videoTitle"></div>
+            <button class="close-btn" id="close-video-btn">✕</button>
+        </div>
+
+      <div id="speakerOverlay">
+        <div>
+          <img src="img/valek_idle.png" id="idle-img">
+        </div>
+        <div id="overlay-dialog">
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-overlay flex-center fullscreen" id="introStartOverlay">
+        <h1>След, который ты оставила</h1>
+        <p>Каждая звезда на небе - это человек, чью жизнь ты изменила</p>
+        <button id="speech-btn">Начать</button>
+    </div>
+
+    <div class="intro-overlay flex-center fullscreen hidden" id="introSpeechOverlay">
+        <p id="startSpeechText"></p>
+        <img src="img/valek_hi.png" id="hello-img" class="opacity-0">
+        <button id="start-btn" class="hidden">Продолжить</button>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

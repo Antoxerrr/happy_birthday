@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  birthday:
+    build: .
+    container_name: birthday
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+    expose:
+      - "${VIRTUAL_PORT}"
+    networks:
+      - nginx-proxy
+      - default
+
+networks:
+    nginx-proxy:
+        external:
+            name: net-nginx-proxy

@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.fullscreen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sky-container {
+    background:
+        /* Виньетирование - тёмные края */
+        radial-gradient(ellipse at center,
+            rgba(30, 30, 80, 0.8) 0%,
+            rgba(20, 20, 60, 0.9) 40%,
+            rgba(10, 10, 40, 1) 100%),
+        /* Цветные акценты */
+        radial-gradient(ellipse at 25% 25%, rgba(120, 100, 220, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 75%, rgba(100, 170, 255, 0.2) 0%, transparent 50%),
+        /* Базовый градиент */
+        linear-gradient(135deg, #1e1e48, #292962, #34347c);
+}
+
+.stars-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.friend-star {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.big {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.star-glow {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.star-name {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.friend-star:hover .star-name {
+    opacity: 1;
+}
+
+.friend-star:hover .star-glow {
+    animation: pulse 0.5s infinite;
+    transform: scale(1.2);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Модальное окно с видео */
+.video-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    min-width: 60vw;
+}
+
+.video-modal video {
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 8px;
+}
+
+.video-title {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Интро overlay */
+.intro-overlay {
+    background: rgb(0, 0, 0);
+    z-index: 1000;
+    color: white;
+    text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-overlay h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-overlay p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.intro-overlay button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.intro-overlay button:hover {
+    transform: scale(1.05);
+}
+
+.opacity-0 {
+    opacity: 0 !important;
+}
+
+#startSpeechText {
+    max-width: 700px;
+}
+
+#hello-img {
+    width: auto;
+    height: 350px;
+}
+
+#speakerOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    height: 500px;
+    width: 1200px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#idle-img {
+    width: auto;
+    height: 550px;
+    margin-bottom: -40px;
+    margin-left: -40px;
+}
+
+#overlay-dialog {
+    height: 40%;
+    width: 100%;
+    background: black;
+    color: whitesmoke;
+    flex-grow: 1;
+    margin-top: 200px;
+    padding: 30px;
+    border-radius: 25px;
+    opacity: 0.8;
+    border: 1px solid #2548c7;
+}
